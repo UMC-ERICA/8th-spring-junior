@@ -1,5 +1,5 @@
 ---
-name: Chore
+name: CHORE
 about: 코드 수정 
 title: "[CHORE]"
 labels: ''
