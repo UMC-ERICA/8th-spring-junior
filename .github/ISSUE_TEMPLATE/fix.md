@@ -1,7 +1,7 @@
 ---
-name: Chore
+name: FIX
 about: 코드 수정 
-title: "[CHORE]"
+title: "[FIX]"
 labels: ''
 assignees: ''
 

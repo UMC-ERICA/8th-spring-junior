@@ -1,7 +1,7 @@
 ---
-name: Chore
+name: REFACTOR
 about: 코드 수정 
-title: "[CHORE]"
+title: "[REFACTOR]"
 labels: ''
 assignees: ''
 
