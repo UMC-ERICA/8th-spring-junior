@@ -1,2 +1,4 @@
-package com.example.spring;public class Test {
+package com.example.spring;
+
+public class Test {
 }
