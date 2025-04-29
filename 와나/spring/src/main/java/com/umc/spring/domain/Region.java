@@ -28,6 +28,6 @@ public class Region extends BaseEntity {
     @Column(nullable = false, length = 10)
     private String dong;
 
-    @OneToOne(mappedBy = "region")
+    @OneToOne(mappedBy = "region", fetch = FetchType.LAZY)
     private Restaurant restaurant;
 }

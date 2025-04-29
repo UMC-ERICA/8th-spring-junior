@@ -20,11 +20,11 @@ public class MemberAgree extends BaseEntity {
     @Column(nullable = false)
     private Boolean isAgree;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "terms_idx")
     private Terms terms;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_idx")
     private Member member;
 
