@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.SocialType;
 import umc.study.domain.enums.MemberStatus;

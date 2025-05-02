@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.AccessLevel;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 
 @Entity
 @Getter
