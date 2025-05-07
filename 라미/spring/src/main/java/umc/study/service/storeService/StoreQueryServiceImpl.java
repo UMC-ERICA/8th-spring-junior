@@ -1,11 +1,11 @@
-package umc.study.service.StoreService;
+package umc.study.service.storeService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.domain.Store;
 import umc.study.domain.enums.StoreStatus;
-import umc.study.repository.StoreRepository.StoreRepository;
+import umc.study.repository.storeRepository.StoreRepository;
 
 import java.util.List;
 import java.util.Optional;

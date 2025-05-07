@@ -1,4 +1,4 @@
-package umc.study.repository.StoreRepository;
+package umc.study.repository.storeRepository;
 
 import umc.study.domain.Store;
 import umc.study.domain.enums.StoreStatus;

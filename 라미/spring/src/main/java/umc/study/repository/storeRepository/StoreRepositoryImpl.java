@@ -1,4 +1,4 @@
- package umc.study.repository.StoreRepository;
+ package umc.study.repository.storeRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;

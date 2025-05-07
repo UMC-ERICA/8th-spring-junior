@@ -1,4 +1,4 @@
-package umc.study.service.StoreService;
+package umc.study.service.storeService;
 
 import umc.study.domain.Store;
 import umc.study.domain.enums.StoreStatus;
