@@ -17,7 +17,7 @@ public class Region extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
     @Column(nullable = false, length = 10)
     private String cityDo;
@@ -28,6 +28,6 @@ public class Region extends BaseEntity {
     @Column(nullable = false, length = 10)
     private String dong;
 
-    @OneToOne(mappedBy = "region", fetch = FetchType.LAZY)
-    private Restaurant restaurant;
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
+    private List<Restaurant> restaurant;
 }

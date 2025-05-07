@@ -17,18 +17,19 @@ public class MemberMission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_idx")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mission_idx")
+    @JoinColumn(name = "mission_id")
     private Mission mission;
 
     @Column(nullable = false)
-    @ColumnDefault("PROGRESS")
+    @ColumnDefault("'PROGRESS'")
+    @Enumerated(EnumType.STRING)
     private MemberMissionStatus status;
 
 }
