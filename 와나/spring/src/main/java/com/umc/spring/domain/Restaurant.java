@@ -20,10 +20,10 @@ public class Restaurant extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_idx")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
     private Region region;
 
     @Column(nullable = false, length = 50)
@@ -33,6 +33,8 @@ public class Restaurant extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private Category category;
 
+    private Float score;
+
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Mission> missions = new ArrayList<>();
 
@@ -41,5 +43,14 @@ public class Restaurant extends BaseEntity {
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<RestImg> restImgs = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", restname='" + restName + '\'' +
+                ", address='" + region.getCityDo() + " " + region.getSiGunGu() + '\'' +
+                '}';
+    }
 
 }

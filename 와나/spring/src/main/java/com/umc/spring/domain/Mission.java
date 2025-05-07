@@ -22,10 +22,10 @@ public class Mission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "rest_idx")
+    @JoinColumn(name = "rest_id")
     private Restaurant restaurant;
 
     @Column(nullable = false, length = 100)

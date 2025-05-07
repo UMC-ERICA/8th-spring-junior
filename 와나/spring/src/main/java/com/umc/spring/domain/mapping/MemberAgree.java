@@ -15,17 +15,17 @@ public class MemberAgree extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 
     @Column(nullable = false)
     private Boolean isAgree;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "terms_idx")
+    @JoinColumn(name = "terms_id")
     private Terms terms;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_idx")
+    @JoinColumn(name = "member_id")
     private Member member;
 
 }
