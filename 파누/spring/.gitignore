@@ -46,3 +46,19 @@ daemon/
 native/
 wrapper/
 build/
+
+# Gradle caches 전역 무시 (루트 및 어디에 있든)
+**/caches/
+**/daemon/
+**/native/
+**/build/
+
+# Gradle 폴더 전역 무시
+.gradle/
+
+# gradle-wrapper만 허용
+!gradle/wrapper/gradle-wrapper.jar
+
+# src 내부 빌드 결과 허용
+!**/src/main/**/build/
+!**/src/test/**/build/

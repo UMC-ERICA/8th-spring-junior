@@ -34,7 +34,7 @@ public class FoodCategory extends BaseEntity {
     @Column(length = 30)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private FoodCategory foodCategory;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "category_id")
+//    private FoodCategory foodCategory;
 }

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import umc.study.apiPayload.ApiResponse;
 import umc.study.apiPayload.code.ErrorReasonDTO;
 import umc.study.apiPayload.code.status.ErrorStatus;
+import umc.study.apiPayload.exception.handler.FoodCategoryHandler;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -114,6 +115,19 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
                 headers,
                 errorCommonStatus.getHttpStatus(),
                 request
+        );
+    }
+
+    @ExceptionHandler(value = FoodCategoryHandler.class)
+    public ResponseEntity<Object> handleFoodCategoryHandler(FoodCategoryHandler ex, WebRequest request) {
+        return handleExceptionInternalFalse(
+                ex,
+                ErrorStatus.FOOD_CATEGORY_NOT_FOUND,
+                HttpHeaders.EMPTY,
+                ErrorStatus.FOOD_CATEGORY_NOT_FOUND.getHttpStatus(),
+                request,
+                null
+                // ex.getMessage() // 추가 정보로 메시지 주고 싶을 때(지금은 없이 진행할게요)
         );
     }
 }
