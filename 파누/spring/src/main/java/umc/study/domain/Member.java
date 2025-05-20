@@ -20,7 +20,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
-import umc.study.common.BaseEntity;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.SocialType;
 import umc.study.domain.enums.MemberStatus;
@@ -32,6 +34,8 @@ import umc.study.domain.Review;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -52,7 +56,7 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String email;
 
     private Integer point;

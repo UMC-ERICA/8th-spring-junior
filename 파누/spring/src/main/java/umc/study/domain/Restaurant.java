@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.AccessLevel;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 
 @Entity
 @Getter
@@ -32,4 +32,14 @@ public class Restaurant extends BaseEntity {
     private String location;
 
     private Double score;
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }

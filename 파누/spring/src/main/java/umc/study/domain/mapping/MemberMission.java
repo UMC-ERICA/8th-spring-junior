@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.AccessLevel;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.Member;
 import umc.study.domain.Mission;
 import umc.study.domain.enums.MissionStatus;
