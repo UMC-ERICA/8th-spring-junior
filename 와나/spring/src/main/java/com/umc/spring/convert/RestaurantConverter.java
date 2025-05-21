@@ -21,7 +21,7 @@ public class RestaurantConverter {
         return Restaurant.builder()
                 .category(category)
                 .region(region)
-                .restName(request.getName())
+                .restName(request.getRestName())
                 .build();
 
     }

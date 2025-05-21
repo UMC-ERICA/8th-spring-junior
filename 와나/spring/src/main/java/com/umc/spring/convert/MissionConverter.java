@@ -18,6 +18,7 @@ public class MissionConverter {
 
         AccMethod method = null;
 
+        System.out.println(request.getAccMethod());
         switch (request.getAccMethod()) {
             case 0:
                 method = AccMethod.PRICE;

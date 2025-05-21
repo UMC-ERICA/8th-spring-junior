@@ -37,6 +37,8 @@ public class ReviewCommandServiceImpl implements ReviewCommandService{
 
         Review review = toReview(request, member, restaurant);
 
+        restaurant.getReviews().add(review);
+
         return reviewRepository.save(review);
     }
 }

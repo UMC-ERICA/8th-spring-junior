@@ -35,7 +35,7 @@ public class Restaurant extends BaseEntity {
     private String restName;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(10)")
+    @Column(columnDefinition = "VARCHAR(50)")
     private Category category;
 
     @ColumnDefault("0.0")

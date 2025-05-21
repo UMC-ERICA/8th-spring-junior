@@ -45,6 +45,8 @@ public class MissionCommandServiceImpl implements MissionCommandService {
 
         Mission mission = MissionConverter.toMission(request, certifiedNum, restaurant);
 
+        restaurant.getMissions().add(mission);
+
         return missionRepository.save(mission);
     }
 
@@ -61,7 +63,11 @@ public class MissionCommandServiceImpl implements MissionCommandService {
                 .member(member)
                 .build();
 
-        return memberMissionRepository.save(memberMission).getId();
+        MemberMission saveMemberMission = memberMissionRepository.save(memberMission);
+        mission.getMemberMissions().add(saveMemberMission);
+        member.getMemberMissions().add(saveMemberMission);
+
+        return memberMissionRepository.save(saveMemberMission).getId();
     }
 
     private static String generateCode(int length) {

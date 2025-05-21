@@ -18,6 +18,7 @@ import com.umc.spring.dto.responseDto.ReviewResponseDto;
 import com.umc.spring.service.RestaurantService.RestaurantCommandService;
 import com.umc.spring.service.missionService.MissionCommandService;
 import com.umc.spring.service.reviewService.ReviewCommandService;
+import com.umc.spring.validation.annotation.ExistRestaurants;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

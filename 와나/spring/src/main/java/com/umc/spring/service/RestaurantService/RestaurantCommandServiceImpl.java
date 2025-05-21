@@ -10,6 +10,7 @@ import com.umc.spring.dto.requestDto.RestaurantRequestDto;
 import com.umc.spring.repository.RegionRepository;
 import com.umc.spring.repository.restaurantRepository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import static com.umc.spring.dto.requestDto.RestaurantRequestDto.*;
@@ -28,7 +29,11 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService{
                 .orElseThrow(() -> new ErrorHandler(ErrorStatus.RESTAURANT_NOT_FOUND));
 
         Restaurant restaurant = RestaurantConverter.toRestaurant(dto, region);
+
         Restaurant saveRestaurant = restaurantRepository.save(restaurant);
+
+        region.getRestaurant().add(saveRestaurant);
+
         return saveRestaurant;
 
 
