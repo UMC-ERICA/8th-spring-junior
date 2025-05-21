@@ -21,10 +21,8 @@ public class Food extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private Category foodName;
 
-
-    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL)
-    private List<MemberLikeFood> memberLikeFoods = new ArrayList<>();
 }
