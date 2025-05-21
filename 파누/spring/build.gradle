@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.0'
-	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'org.springframework.boot' version '3.4.3'
+	id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.example'
@@ -27,48 +27,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 
-	// QueryDSL
-	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-	annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
-	annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
-	annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
-
 	// Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
 	// Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-// QueryDSL QClass 생성 디렉토리
-def querydslDir = "$buildDir/generated/querydsl"
-
-sourceSets {
-	main {
-		java {
-			srcDirs += querydslDir
-		}
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	options.annotationProcessorGeneratedSourcesDirectory = file(querydslDir)
-}
-
-// QClass 수동 생성용 Task 정의
-tasks.register("compileQuerydsl", JavaCompile) {
-	group = "build"
-	description = "Compile QueryDSL Q-classes"
-	source = sourceSets.main.java
-	classpath = sourceSets.main.compileClasspath
-	destinationDirectory = file(querydslDir)
-	options.annotationProcessorGeneratedSourcesDirectory = file(querydslDir)
-}
-
-// clean 시 QClass 디렉토리도 함께 삭제
-clean {
-	delete file(querydslDir)
 }
 
 tasks.named('test') {
