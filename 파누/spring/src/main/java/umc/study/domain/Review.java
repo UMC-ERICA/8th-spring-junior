@@ -17,10 +17,9 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.AccessLevel;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.ReviewRank;
 import umc.study.domain.Member;
-import umc.study.domain.Restaurant;
 
 @Entity
 @Getter

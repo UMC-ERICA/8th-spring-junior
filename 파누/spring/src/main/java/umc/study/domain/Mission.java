@@ -17,7 +17,7 @@ import lombok.AccessLevel;
 
 import java.time.LocalDateTime;
 
-import umc.study.common.BaseEntity;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.Restaurant;
 
 @Entity
