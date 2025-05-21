@@ -2,6 +2,7 @@ package com.umc.spring.validation.validator;
 
 import com.umc.spring.apiPayload.code.status.ErrorStatus;
 import com.umc.spring.repository.foodRepository.FoodRepository;
+import com.umc.spring.service.foodService.FoodService;
 import com.umc.spring.validation.annotation.ExistCategories;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoriesExistValidator implements ConstraintValidator<ExistCategories, List<Long>> {
 
-    private final FoodRepository foodRepository;
+    private final FoodService foodService;
     @Override
     public void initialize(ExistCategories constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
@@ -23,8 +24,7 @@ public class CategoriesExistValidator implements ConstraintValidator<ExistCatego
     // 이거만 바꾸면 됨
     @Override
     public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
-        boolean isValid = values.stream()
-                .allMatch(value -> foodRepository.existsById(value));
+        boolean isValid = foodService.existAllFoodCategories(values);
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
