@@ -3,6 +3,7 @@ package com.umc.spring.controller;
 import com.umc.spring.apiPayload.ApiResponse;
 import com.umc.spring.convert.MissionConverter;
 import com.umc.spring.service.missionService.MissionCommandService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class MissionController {
     private final MissionCommandService missionCommandService;
 
     @PostMapping("/{missionId}/members")
-    public ApiResponse<MissionStartResponseDto> startMission(@PathVariable Long missionId) {
+    public ApiResponse<MissionStartResponseDto> startMission(@PathVariable @Valid Long missionId) {
         Long memberMissionId = missionCommandService.startMission(missionId);
         return ApiResponse.onSuccess(MissionConverter.toMissionStartResponseDto(memberMissionId));
     }
