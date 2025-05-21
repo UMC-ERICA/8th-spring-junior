@@ -29,7 +29,8 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryCustom {
         }
 
         return jpaQueryFactory
-                .selectFrom(restaurant)
+                .select(restaurant)
+                .from(restaurant)
                 .where(predicate)
                 .fetch();
     }

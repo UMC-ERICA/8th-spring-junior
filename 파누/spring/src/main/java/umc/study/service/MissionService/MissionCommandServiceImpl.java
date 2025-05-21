@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.domain.Mission;
 import umc.study.domain.Restaurant;
+import umc.study.repository.MissionRepository.MissionRepository;
+import umc.study.repository.RestaurantRepository.RestaurantRepository;
 import umc.study.web.dto.MissionDTO.MissionRequestDTO;
 import umc.study.web.dto.MissionDTO.MissionResponseDTO;
 

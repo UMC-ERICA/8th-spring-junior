@@ -32,7 +32,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
                 .member(member)
                 .restaurant(restaurant)
                 .content(request.getContent())
-//                .rating(request.getRating())
+                .rank(request.getRank())
                 .build();
 
         Review saved = reviewRepository.save(review);
