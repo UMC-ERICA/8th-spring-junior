@@ -7,8 +7,11 @@ import com.umc.spring.domain.mapping.MemberMission;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Getter
 public class Mission extends BaseEntity {
 
@@ -32,7 +37,7 @@ public class Mission extends BaseEntity {
     private String content;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "VARCHAR(10) DEFAULT 'PROGRESS'")
+    @ColumnDefault("'PROGRESS'")
     private MissionStatus status;
 
     @Column(nullable = false)
@@ -45,7 +50,7 @@ public class Mission extends BaseEntity {
     @ColumnDefault("0")
     private int accPoint;
 
-    private LocalDateTime deadline;
+    private LocalDate deadline;
 
     @Column(nullable = false, length = 15)
     private String certifiedNum;

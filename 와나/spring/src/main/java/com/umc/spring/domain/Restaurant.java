@@ -6,6 +6,9 @@ import com.umc.spring.domain.imgs.RestImg;
 import com.umc.spring.domain.mapping.MemberAgree;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,6 +18,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Getter
 public class Restaurant extends BaseEntity {
 
@@ -33,6 +38,7 @@ public class Restaurant extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private Category category;
 
+    @ColumnDefault("0.0")
     private Float score;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)

@@ -7,11 +7,15 @@ import com.umc.spring.domain.enums.MemberMissionStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Getter
 public class MemberMission extends BaseEntity {
 
@@ -28,7 +32,7 @@ public class MemberMission extends BaseEntity {
     private Mission mission;
 
     @Column(nullable = false)
-    @ColumnDefault("'PROGRESS'")
+    @ColumnDefault("'WAIT_ACCUMULATE'")
     @Enumerated(EnumType.STRING)
     private MemberMissionStatus status;
 
