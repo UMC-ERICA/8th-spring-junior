@@ -21,12 +21,12 @@ public class RestaurantQueryServiceImpl implements RestaurantQueryService {
         return restaurantRepository.findById(id);
     }
 
-    @Override
+/*    @Override
     public List<Restaurant> findRestaurantsByNameAndScore(String name, Float score) {
         List<Restaurant> filteredRestaurants = restaurantRepository.dynamicQueryWithBooleanBuilder(name, score);
 
         filteredRestaurants.forEach(restaurant -> System.out.println("Restaurant: " + restaurant));
 
         return filteredRestaurants;
-    }
+    }*/
 }

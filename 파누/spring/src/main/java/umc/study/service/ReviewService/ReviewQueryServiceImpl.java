@@ -17,6 +17,6 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
 
     @Override
     public List<Review> getReviewsByRestaurant(Long restaurantId) {
-        return reviewRepository.findReviewsByRestaurantId(restaurantId);
+        return reviewRepository.findByRestaurantId(restaurantId);
     }
 }

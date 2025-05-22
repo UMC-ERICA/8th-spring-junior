@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import umc.study.domain.Member;
 import umc.study.domain.Restaurant;
 import umc.study.domain.Review;
+import umc.study.domain.enums.ReviewRank;
 import umc.study.repository.MemberRepository.MemberRepository;
 import umc.study.repository.RestaurantRepository.RestaurantRepository;
 import umc.study.repository.ReviewRepository.ReviewRepository;
@@ -32,7 +33,11 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
                 .member(member)
                 .restaurant(restaurant)
                 .content(request.getContent())
-                .rank(request.getRank())
+                /*
+                내가 에러 잡다가 이거 DTO에 없는데 넣으려고 해서 오류 나는 것 같아서 일단 하드코딩으로 박아뒀습니다!
+                * 나중에 수정 해주세요!
+                * */
+                .rank(ReviewRank.R1)
                 .build();
 
         Review saved = reviewRepository.save(review);

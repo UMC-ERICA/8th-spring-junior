@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface RestaurantQueryService {
 
     Optional<Restaurant> findRestaurant(Long id);
-    List<Restaurant> findRestaurantsByNameAndScore(String name, Float score);
+    /*List<Restaurant> findRestaurantsByNameAndScore(String name, Float score);*/
 }
