@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -25,6 +26,8 @@ public class QFood extends EntityPathBase<Food> {
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    public final ListPath<umc.study.domain.mapping.MemberFood, umc.study.domain.mapping.QMemberFood> memberFoodList = this.<umc.study.domain.mapping.MemberFood, umc.study.domain.mapping.QMemberFood>createList("memberFoodList", umc.study.domain.mapping.MemberFood.class, umc.study.domain.mapping.QMemberFood.class, PathInits.DIRECT2);
 
     public final EnumPath<umc.study.domain.enums.FoodName> name = createEnum("name", umc.study.domain.enums.FoodName.class);
 
