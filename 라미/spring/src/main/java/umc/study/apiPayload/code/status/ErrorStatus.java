@@ -18,17 +18,31 @@ public enum ErrorStatus implements BaseErrorCode {
 
 
   // Member Error
-  MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
+  MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자를 찾을 수 없습니다."),
   NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임은 필수 입니다."),
 
   // 예시
   ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
-
-  // test
   TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
 
   // food
-  FOOD_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD404", "음식 카테고리를 찾을 수 없습니다.");
+  FOOD_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD404", "음식 카테고리를 찾을 수 없습니다."),
+
+  // store
+  STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE4001", "음식점을 찾을 수 없습니다."),
+
+  // mission
+  MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION4001", "미션을 찾을 수 없습니다."),
+  ALREADY_START_MISSION(HttpStatus.BAD_REQUEST, "MISSION4002", "이미 진행중인 미션입니다."),
+  MISSION_CONTENT_EMPTY(HttpStatus.BAD_REQUEST, "MISSION4001", "미션 내용을 입력해주세요."),
+  MISSION_TITLE_EMPTY(HttpStatus.BAD_REQUEST, "MISSION4002", "미션 제목을 입력해주세요."),
+
+  // region
+  REGION_NOT_FOUND(HttpStatus.NOT_FOUND, "REGION4001", "지역을 찾을 수 없습니다."),
+
+  // review
+  REVIEW_CONTENT_EMPTY(HttpStatus.BAD_REQUEST, "REVIEW4001", "리뷰 내용을 입력해주세요."),
+  REVIEW_RATING_INVALID(HttpStatus.BAD_REQUEST, "REVIEW4002", "평점이 올바르지 않습니다.");
 
   private final HttpStatus httpStatus;
   private final String code;

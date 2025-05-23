@@ -8,7 +8,6 @@ import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
-import umc.study.domain.Member;
 
 
 /**
@@ -59,7 +58,5 @@ public class QMemberFood extends EntityPathBase<MemberFood> {
         this.member = inits.isInitialized("member") ? new umc.study.domain.QMember(forProperty("member")) : null;
     }
 
-    public void setMember(Member newMember) {
-    }
 }
 

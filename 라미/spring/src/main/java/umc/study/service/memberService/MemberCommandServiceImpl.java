@@ -13,11 +13,9 @@ import umc.study.domain.mapping.MemberFood;
 import umc.study.repository.foodRepository.FoodRepository;
 import umc.study.repository.memberRepository.MemberRepository;
 import umc.study.web.dto.MemberRequestDTO;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static umc.study.domain.mapping.QMemberFood.memberFood;
 
 @Service
 @RequiredArgsConstructor
@@ -29,17 +27,16 @@ public class MemberCommandServiceImpl implements MemberCommandService {
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinDto request) {
-
         Member newMember = MemberConverter.toMember(request);
+
         List<Food> foodList = request.getPreferCategory().stream()
                 .map(id -> foodRepository.findById(id)
-                        .orElseThrow(() -> new FoodHandler(ErrorStatus.FOOD_NOT_FOUND))
-                )
+                        .orElseThrow(() -> new FoodHandler(ErrorStatus.FOOD_NOT_FOUND)))
                 .collect(Collectors.toList());
 
-        List<MemberFood> memberFoodList = MemberFoodConverter.toMemberFoodList(foodList);
+        List<MemberFood> memberFoodList = MemberFoodConverter.toMemberFoodList(foodList, newMember);
 
-        memberFoodList.forEach(memberfood -> {memberFood.setMember(newMember);});
+        memberFoodList.forEach(memberFood -> {memberFood.setMember(newMember);});
 
         return memberRepository.save(newMember);
     }
