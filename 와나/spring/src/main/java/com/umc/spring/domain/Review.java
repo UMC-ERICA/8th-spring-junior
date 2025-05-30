@@ -29,7 +29,7 @@ public class Review extends BaseEntity {
     private Member member;
 
     @Column(nullable = false)
-    private Double score;
+    private Float score;
 
     @Column(length = 50)
     private String content;

@@ -36,4 +36,8 @@ public class MemberMission extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MemberMissionStatus status;
 
+    public void setStatus(MemberMissionStatus status) {
+        this.status = status;
+    }
+
 }

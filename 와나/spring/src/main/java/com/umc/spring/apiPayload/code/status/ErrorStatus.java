@@ -34,7 +34,10 @@ public enum ErrorStatus implements BaseErrorCode {
     REGION_NOT_FOUND(HttpStatus.BAD_REQUEST, "REGION4001", "지역을 찾을 수 없습니다."),
 
     // Food
-    FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001", "음식이 카테고리에 없습니다.")
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001", "음식이 카테고리에 없습니다."),
+
+    // paging
+    NEGATIVE_PAGE_NUMBER_REQUEST(HttpStatus.BAD_REQUEST, "PAGE4001", "1이상의 페이지를 요청해야합니다."),
     ;
 
     private final HttpStatus httpStatus;
