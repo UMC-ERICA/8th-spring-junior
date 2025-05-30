@@ -10,6 +10,8 @@ import com.umc.spring.domain.mapping.MemberMission;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Getter
 public class Member extends BaseEntity {
 
@@ -29,7 +33,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String username;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = true, length = 50) // 소셜로그인 아직 안 해서 nullable로 변경
     private String email;
 
     @Enumerated(EnumType.STRING)
@@ -42,12 +46,12 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 100)
     private String address;
 
-    @Column(nullable = false)
     @ColumnDefault("0")
     private Long point;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
+    @ColumnDefault("'ACTIVE'")
     private MemberStatus status; // 활성, 비활성
 
     @Enumerated(EnumType.STRING)
