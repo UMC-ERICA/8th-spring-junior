@@ -24,6 +24,23 @@ public class MemberFood extends BaseEntity {
     @JoinColumn(name = "food_id")
     private Food food;
 
+    // 연관관계 편의 메서드 (Member 쪽)
+    public void setMember(Member member) {
+        if (this.member != null) {
+            this.member.getMemberFoodList().remove(this);
+        }
+        this.member = member;
+        member.getMemberFoodList().add(this);
+    }
 
+
+    //연관관계 편의 메서드 (Food 쪽)
+    public void setFood(Food food) {
+        if (this.food != null) {
+            this.food.getMemberFoodList().remove(this);
+        }
+        this.food = food;
+        food.getMemberFoodList().add(this);
+    }
 
 }
