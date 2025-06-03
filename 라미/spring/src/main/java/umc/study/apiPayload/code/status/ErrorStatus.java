@@ -42,7 +42,11 @@ public enum ErrorStatus implements BaseErrorCode {
 
   // review
   REVIEW_CONTENT_EMPTY(HttpStatus.BAD_REQUEST, "REVIEW4001", "리뷰 내용을 입력해주세요."),
-  REVIEW_RATING_INVALID(HttpStatus.BAD_REQUEST, "REVIEW4002", "평점이 올바르지 않습니다.");
+  REVIEW_RATING_INVALID(HttpStatus.BAD_REQUEST, "REVIEW4002", "평점이 올바르지 않습니다."),
+
+  INVALID_PASSWORD(HttpStatus.UNAUTHORIZED, "AUTH_4001", "비밀번호가 일치하지 않습니다."),
+  INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "AUTH401", "유효하지 않은 토큰입니다.");
+
 
   private final HttpStatus httpStatus;
   private final String code;

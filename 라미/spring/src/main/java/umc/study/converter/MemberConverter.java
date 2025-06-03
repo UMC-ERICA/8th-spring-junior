@@ -96,4 +96,22 @@ public class MemberConverter {
                 .build();
     }
 
+    public static MemberResponseDTO.LoginResultDTO toLoginResultDTO(Long memberId, String accessToken) {
+        return MemberResponseDTO.LoginResultDTO.builder()
+                .memberId(memberId)
+                .accessToken(accessToken)
+                .build();
+    }
+
+    public static MemberResponseDTO.MemberInfoDTO toMemberInfoDTO(Member member) {
+        return MemberResponseDTO.MemberInfoDTO.builder()
+                .email(member.getEmail())
+                .name(member.getName())
+                .build();
+    }
+
+
+
+
+
 }
