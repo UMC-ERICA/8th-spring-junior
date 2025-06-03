@@ -15,7 +15,7 @@ public class ReviewRestController {
 
     private final ReviewCommandService reviewCommandService;
 
-    @PostMapping("/{storeId}/reviews")
+    @PostMapping("/{storeId}/review")
     public ApiResponse<ReviewResponseDTO.ReviewIdResult> createReview(
             @PathVariable(name = "storeId") Long storeId,
             @RequestBody @Valid ReviewRequestDTO.CreateReview request
