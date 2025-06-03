@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
+import umc.study.domain.enums.Role;
 import umc.study.domain.enums.SocialType;
 import umc.study.domain.mapping.MemberFood;
 import umc.study.domain.mapping.MemberMission;
@@ -53,8 +54,14 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    @Column(nullable = true, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Builder.Default
     @ColumnDefault("0")
@@ -75,5 +82,10 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Inquiry> inquiryList = new ArrayList<>();
+
+    // 비밀번호 설정 함수
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
 }
