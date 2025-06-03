@@ -3,14 +3,17 @@ package umc.study;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import umc.study.config.properties.JwtProperties;
 import umc.study.domain.enums.StoreStatus;
 import umc.study.service.storeService.StoreQueryService;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@EnableConfigurationProperties(JwtProperties.class)
 public class Application {
 
 	public static void main(String[] args) {
