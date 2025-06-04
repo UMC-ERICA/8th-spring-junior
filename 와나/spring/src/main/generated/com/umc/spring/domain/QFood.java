@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -28,8 +27,6 @@ public class QFood extends EntityPathBase<Food> {
     public final EnumPath<com.umc.spring.domain.enums.Category> foodName = createEnum("foodName", com.umc.spring.domain.enums.Category.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
-
-    public final ListPath<com.umc.spring.domain.mapping.MemberLikeFood, com.umc.spring.domain.mapping.QMemberLikeFood> memberLikeFoods = this.<com.umc.spring.domain.mapping.MemberLikeFood, com.umc.spring.domain.mapping.QMemberLikeFood>createList("memberLikeFoods", com.umc.spring.domain.mapping.MemberLikeFood.class, com.umc.spring.domain.mapping.QMemberLikeFood.class, PathInits.DIRECT2);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;

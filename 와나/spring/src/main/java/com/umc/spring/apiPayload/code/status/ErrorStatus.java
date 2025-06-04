@@ -16,12 +16,33 @@ public enum ErrorStatus implements BaseErrorCode {
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON402", "금지된 요청입니다."),
     _INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "COMMON500", "서버에러, 관리자에게 문의 바랍니다."),
 
+    // token
+    INVALID_TOKEN(HttpStatus.BAD_REQUEST, "TOKEN4000", "유효하지 않은 토큰입니다."),
+
     // test
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "테스트중입니다."),
 
     // Member
     MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
-    NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임을 입력해주세요")
+    USERNAME_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4002", "해당 이메일을 가진 사용자가 없습니다."),
+    NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4003", "닉네임을 입력해주세요"),
+    INVALID_PASSWORD(HttpStatus.BAD_REQUEST, "MEMBER4004", "비밀번호가 틀렸습니다."),
+
+    //Restaurant
+    RESTAURANT_NOT_FOUND(HttpStatus.BAD_REQUEST, "RESTAURANT4001", "음식점을 찾을 수 없습니다."),
+
+    // Mission
+    MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "MISSION4001", "미션을 찾을 수 없습니다."),
+    ALREADY_START_MISSION(HttpStatus.BAD_REQUEST, "MISSION4002", "이미 진행중인 미션입니다."),
+
+    // Region
+    REGION_NOT_FOUND(HttpStatus.BAD_REQUEST, "REGION4001", "지역을 찾을 수 없습니다."),
+
+    // Food
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001", "음식이 카테고리에 없습니다."),
+
+    // paging
+    NEGATIVE_PAGE_NUMBER_REQUEST(HttpStatus.BAD_REQUEST, "PAGE4001", "1이상의 페이지를 요청해야합니다."),
     ;
 
     private final HttpStatus httpStatus;

@@ -25,4 +25,16 @@ public class MemberLikeFood extends BaseEntity {
     @JoinColumn(name = "food_id")
     private Food food;
 
+    // setMember 워크북에 있어서 일단 만들어는 둠
+    public void setMember(Member member) {
+        if(this.member != null)
+            member.getMemberLikeFoods().remove(this);
+        this.member = member;
+        member.getMemberLikeFoods().add(this);
+    }
+
+    public void setFood(Food food){
+        this.food = food;
+    }
+
 }

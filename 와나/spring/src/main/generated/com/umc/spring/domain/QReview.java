@@ -37,7 +37,7 @@ public class QReview extends EntityPathBase<Review> {
 
     public final ListPath<com.umc.spring.domain.imgs.ReviewImg, com.umc.spring.domain.imgs.QReviewImg> reviewImgs = this.<com.umc.spring.domain.imgs.ReviewImg, com.umc.spring.domain.imgs.QReviewImg>createList("reviewImgs", com.umc.spring.domain.imgs.ReviewImg.class, com.umc.spring.domain.imgs.QReviewImg.class, PathInits.DIRECT2);
 
-    public final NumberPath<Double> score = createNumber("score", Double.class);
+    public final NumberPath<Float> score = createNumber("score", Float.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
