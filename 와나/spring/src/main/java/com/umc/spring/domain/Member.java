@@ -3,6 +3,7 @@ package com.umc.spring.domain;
 import com.umc.spring.domain.common.BaseEntity;
 import com.umc.spring.domain.enums.Gender;
 import com.umc.spring.domain.enums.MemberStatus;
+import com.umc.spring.domain.enums.Role;
 import com.umc.spring.domain.enums.SocialType;
 import com.umc.spring.domain.mapping.MemberAgree;
 import com.umc.spring.domain.mapping.MemberLikeFood;
@@ -33,7 +34,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String username;
 
-    @Column(nullable = true, length = 50) // 소셜로그인 아직 안 해서 nullable로 변경
+    @Column(nullable = false, length = 50, unique = true) // 소셜로그인 아직 안 해서 nullable로 변경
     private String email;
 
     @Enumerated(EnumType.STRING)
@@ -48,6 +49,12 @@ public class Member extends BaseEntity {
 
     @ColumnDefault("0")
     private Long point;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
@@ -70,5 +77,9 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
 }
